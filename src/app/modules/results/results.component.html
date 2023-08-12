@@ -1,0 +1,17 @@
+<div class="results">
+    <div class="filters">
+        <mat-paginator [length]="totalItems" [pageSize]="itemsPerPage" [pageIndex]="currentPage"
+            [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)" class="pagination-menu">
+        </mat-paginator>
+        <mat-form-field>
+            <mat-label>Sort by</mat-label>
+            <mat-select (selectionChange)="handleSortResults($event)">
+                <mat-option *ngFor="let sortOption of sortOptions" [value]="sortOption">
+                    {{sortOption}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <app-video-list [videos]="currentData" (videoSelected)="handleVideoSelect($event)"
+        (openSaveDialog)="openSaveDialog($event)" [isFullDisplay]="true"></app-video-list>
+</div>

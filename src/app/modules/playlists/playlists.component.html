@@ -1,0 +1,40 @@
+<div class="playlists-container">
+    <div class="playlists-title">PLAYLISTS</div>
+    <div class="playlists-wrapper">
+        <div class="playlists">
+            <div *ngFor="let playlist of playlists">
+                <div (click)="handlePlaylistSelect(playlist)" class="playlist">
+                    <img [src]="getSafeUrl(playlist.thumbnail)" class="playlist-image"
+                        *ngIf="playlist.thumbnail;else emptyThumbnail" alt="{{playlist.title}}">
+                    <ng-template #emptyThumbnail>
+                        <div class="playlist-no-img">
+                            <div class="material-icons">dvr</div>
+                            <div> No Videos</div>
+                        </div>
+                    </ng-template>
+                </div>
+                <div class="playlist-footer">
+                    <div class="playlist-title">{{playlist.title}}</div>
+                    <button mat-button (click)="openDeleteDialog(playlist)">
+                        <span class="material-icons">delete_outline</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="create-wrapper">
+        <div class="create-button">
+            <span class="material-icons">queue</span>
+            <span class="create-button-txt">Create new playlist</span>
+        </div>
+        <form [formGroup]="createPlaylistGroup" class="name-form">
+            <mat-form-field>
+                <input matInput required #input formControlName="name" maxlength="10" id="name"
+                    placeholder="Playlist name" class="name-input">
+                <mat-hint align="end">{{input.value.length}}/10</mat-hint>
+                <mat-hint align="start">Min 3 chars</mat-hint>
+            </mat-form-field>
+            <button mat-flat-button color="warn" type="submit" (click)="onNameSubmit()">Create</button>
+        </form>
+    </div>
+</div>

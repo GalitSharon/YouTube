@@ -1,0 +1,23 @@
+.results {
+    display: grid;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-mdc-paginator-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+@media (max-width: 955px) {
+
+    .filters {
+        display: grid;
+        grid-template-columns: 80%;
+        width: 87vw;
+    }
+}

@@ -1,0 +1,17 @@
+.home-container {
+    display: grid;
+    grid-template-columns: 60% 36%;
+    justify-content: space-between;
+}
+
+
+@media (max-width: 768px) {
+    .home-container {
+        grid-template-columns: 100%;
+    }
+
+    .videos {
+        position: relative;
+        bottom: 26vh;
+    }
+}

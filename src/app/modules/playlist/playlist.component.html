@@ -1,0 +1,8 @@
+<div class="home-container">
+    <app-video-display [video]="selectedVideo" [isPlaylistDisplay]="true"></app-video-display>
+    <div class="playlist-display" [ngClass]="selectedVideo ? 'videos-display' : ''">
+        <div class="playlist-title">{{playlist ? playlist.title : ''}}</div>
+        <app-video-list [videos]="videos" (videoSelected)="handleVideoSelect($event)" [isPlaylistDisplay]="true"
+            (openSaveDialog)="openSaveDialog($event)" (openDeleteDialog)="openDeleteDialog($event)"></app-video-list>
+    </div>
+</div>

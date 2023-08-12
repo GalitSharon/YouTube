@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Playlists</h1>
+<div mat-dialog-content>
+    <div>Select playlist(s)</div>
+    <mat-list>
+        <mat-list-item *ngFor="let option of data.options">
+            <mat-checkbox [checked]="checkedItems.has(option)" (change)="toggleChecked(option);">
+                {{ option.title }}
+            </mat-checkbox>
+        </mat-list-item>
+    </mat-list>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="onCancel()">Cancel</button>
+    <button mat-button mat-dialog-close (click)="onSave()">Save</button>
+</div>

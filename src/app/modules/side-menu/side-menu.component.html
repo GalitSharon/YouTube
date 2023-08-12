@@ -1,0 +1,11 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" [opened]="opened" position="end">
+        <app-playlists (onSelect)="onSelect()"></app-playlists>
+    </mat-sidenav>
+    <mat-sidenav-content #sidenavContent>
+        <div mat-button (click)="toggleSidenav();" class="menu-button">
+            <span class="material-icons">playlist_play</span>
+            <div *ngIf="!opened" class="icon-title">Playlists</div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

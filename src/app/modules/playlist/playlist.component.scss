@@ -1,0 +1,39 @@
+.home-container {
+    display: grid;
+    grid-template-columns: 60% 36%;
+    justify-content: space-between;
+    padding-top: 4vh;
+}
+
+.playlist-display {
+    border: 1px rgb(235, 234, 234) solid;
+    border-radius: 20px;
+    width: 100%;
+
+    .playlist-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 90%;
+        font-size: 1.3rem;
+        font-weight: 600;
+        padding: 3vh 0 3vh 3vh;
+        width: 80%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .home-container {
+        grid-template-columns: 90%;
+    }
+
+    .playlist-display {
+        margin-top: 5vh;
+    }
+
+    .videos-display {
+        position: relative;
+        bottom: 23vh;
+    }
+}

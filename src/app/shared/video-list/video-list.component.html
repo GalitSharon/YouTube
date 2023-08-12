@@ -1,0 +1,22 @@
+<div class="video-list">
+    <div *ngFor="let video of videos">
+        <div [ngClass]="isFullDisplay ? 'video-item-full' : 'video-item'">
+            <img (click)="onSelect(video)" [src]="video.thumbnails.default.url" alt="{{video.title}}"
+                [ngClass]="isFullDisplay ? 'img-full' : 'img'">
+            <button [matMenuTriggerFor]="myMenu" class="menu-button">
+                <span class="material-icons">more_vert</span>
+            </button>
+        </div>
+        <div [ngClass]="isFullDisplay ? 'video-title-full' : 'video-title'">{{video.title}}</div>
+        <mat-menu #myMenu="matMenu">
+            <button mat-menu-item (click)="openSaveModal(video)">
+                <mat-icon>playlist_add</mat-icon>
+                <span>Save to Playlist</span>
+            </button>
+            <button mat-menu-item (click)="openDeleteModal(video)" *ngIf="isPlaylistDisplay">
+                <mat-icon>delete_outline</mat-icon>
+                <span>Remove from playlist</span>
+            </button>
+        </mat-menu>
+    </div>
+</div>

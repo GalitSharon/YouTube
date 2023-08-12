@@ -1,0 +1,22 @@
+<div class="video-container" *ngIf="video && video.id.length; else noVideo">
+    <div class="video-title">{{video.title}}</div>
+    <div class="video-description">{{video.description}}</div>
+    <div class="video-player">
+        <div class="video-player">
+            <iframe [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="video-info">
+        <div class="video-footer">
+            <span class="video-date">Views count: {{video.viewCount }}</span>
+            <span class="video-date">Publish date: {{video.publishDate | date}}</span>
+        </div>
+    </div>
+</div>
+
+<ng-template #noVideo>
+    <div class="no-video">
+        <div class="material-icons">dvr</div>
+        <div> No Videos</div>
+    </div>
+</ng-template>

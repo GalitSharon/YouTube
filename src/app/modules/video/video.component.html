@@ -1,0 +1,10 @@
+<div class="home-container">
+    <div *ngIf="!selectedVideo; else videoPlayer">No video to display</div>
+    <ng-template #videoPlayer>
+        <app-video-display [video]="selectedVideo" [isPlaylistDisplay]="false"></app-video-display>
+    </ng-template>
+    <div [ngClass]="selectedVideo ? 'videos' : ''">
+        <app-video-list [videos]="videos" (videoSelected)="handleVideoSelect($event)" [isPlaylistDisplay]="false"
+            (openSaveDialog)="openSaveDialog($event)"></app-video-list>
+    </div>
+</div>
